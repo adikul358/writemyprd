@@ -1,0 +1,93 @@
+{% extends 'base.html' %}
+
+{% block layout %}
+	<div class="absolute top-0 inset-x-0 h-12 text-sm font-light flex flex-col justify-center items-center bg-white z-10 shadow-md">
+		<span>This is brought to you by <a target="_blank" class="text-pink-600" href="https://github.com/adikul358">Aditya Kulshrestha</a></span>
+	</div>
+	<div class="flex flex-row min-w-screen min-h-screen bg-white pt-12">
+		<div class="flex flex-col w-1/2 p-[72px] overflow-y-auto max-h-[calc(100vh-48px)] relative bg-white">
+			<h1 class="text-3xl font-bold text-gray-800 mb-6">Make Writing PRDs a Breeze with ChatGPT</h1>
+			<p class="text-gray-500 mb-6">Describe the problem your product/service solves. Help the bot with top level information, and let it give you something you can build on.</p>
+			<p>{{message}}</p>
+			<form method="POST">
+				{{ form.csrf_token }}
+
+				<h3 class="text-lg font-bold text-gray-800 mb-5"><span class="text-pink-600">1.</span> About Your Product</h3>
+				<div class="space-y-4">
+					<div>
+						<div class="w-40">
+							<span class="block text-base mb-1 flex items-center">
+								{{ form.product_name.label }}
+								<svg class="w-3 h-3 ml-1 fill-pink-600" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 16"><path d="M8 0a1 1 0 0 1 1 1v5.268l4.562-2.634a1 1 0 1 1 1 1.732L10 8l4.562 2.634a1 1 0 1 1-1 1.732L9 9.732V15a1 1 0 1 1-2 0V9.732l-4.562 2.634a1 1 0 1 1-1-1.732L6 8 1.438 5.366a1 1 0 0 1 1-1.732L7 6.268V1a1 1 0 0 1 1-1z"></path></svg>
+							</span>
+						</div>
+						{{ form.product_name(class="px-4 py-2 border border-gray-300 text-gray-700 text-sm w-full focus:ring-pink-200 focus:ring-4 rounded focus:outline-none focus:border-[#F8A8D5]") }}
+					</div>
+					<div>
+						<div class="w-40">
+							<span class="block text-base mb-1 flex items-center">
+								{{ form.feature_name.label }}
+								<svg class="w-3 h-3 ml-1 fill-pink-600" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 16"><path d="M8 0a1 1 0 0 1 1 1v5.268l4.562-2.634a1 1 0 1 1 1 1.732L10 8l4.562 2.634a1 1 0 1 1-1 1.732L9 9.732V15a1 1 0 1 1-2 0V9.732l-4.562 2.634a1 1 0 1 1-1-1.732L6 8 1.438 5.366a1 1 0 0 1 1-1.732L7 6.268V1a1 1 0 0 1 1-1z"></path></svg>
+							</span>
+						</div>
+						{{ form.feature_name(class="px-4 py-2 border border-gray-300 text-gray-700 text-sm w-full focus:ring-pink-200 focus:ring-4 rounded focus:outline-none focus:border-[#F8A8D5]") }}
+					</div>
+					<div>
+						<div class="w-72">
+							<span class="block text-base mb-1 flex items-center">
+								{{ form.overview.label }}
+								<svg class="w-3 h-3 ml-1 fill-pink-600" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 16"><path d="M8 0a1 1 0 0 1 1 1v5.268l4.562-2.634a1 1 0 1 1 1 1.732L10 8l4.562 2.634a1 1 0 1 1-1 1.732L9 9.732V15a1 1 0 1 1-2 0V9.732l-4.562 2.634a1 1 0 1 1-1-1.732L6 8 1.438 5.366a1 1 0 0 1 1-1.732L7 6.268V1a1 1 0 0 1 1-1z"></path></svg>
+							</span>
+						</div>
+						{{ form.overview(class="px-4 py-2 border border-gray-300 text-gray-700 text-sm w-full focus:ring-pink-200 focus:ring-4 rounded focus:outline-none focus:border-[#F8A8D5] resize-none", rows=4) }}
+					</div>
+				</div>
+
+				<h3 class="text-lg font-bold text-gray-800 mb-5 mt-6"><span class="text-pink-600">2.</span> Define Your Requirement</h3>
+				<div class="space-y-4">
+					<div>
+						<div class="w-72">
+							<span class="block text-base mb-1 flex items-center">
+								{{ form.feature_list.label }}
+							</span>
+						</div>
+						{{ form.feature_list(class="px-4 py-2 border border-gray-300 text-gray-700 text-sm w-full focus:ring-pink-200 focus:ring-4 rounded focus:outline-none focus:border-[#F8A8D5] resize-none", rows=4) }}
+					</div>
+					<div>
+						<div class="w-72">
+							<span class="block text-base mb-1 flex items-center">
+								{{ form.user_feedback.label }}
+							</span>
+						</div>
+						{{ form.user_feedback(class="px-4 py-2 border border-gray-300 text-gray-700 text-sm w-full focus:ring-pink-200 focus:ring-4 rounded focus:outline-none focus:border-[#F8A8D5] resize-none", rows=4) }}
+					</div>
+				</div>
+
+				<div class="sticky -bottom-[72px] mt-6 inset-x-12 px-2 py-2 font-semibold text-sm text-slate-900 bg-slate-50/90 backdrop-blur-sm ring-1 ring-slate-900/10 space-x-4 rounded-xl shadow-2xl">
+					<div class="flex gap-4 text-white text-sm font-bold font-mono leading-6 bg-stripes-indigo rounded-lg">
+						<!-- <button id="clearAll" class="p-4 w-14 h-14 flex-none rounded-lg flex items-center justify-center bg-gray-50 border border-gray-300 text-gray-600 hover:bg-gray-100">
+							<div tooltip="Clear All" position="top" class="w-full" data-v-47bc123b="">
+								<svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M6.707 4.879A3 3 0 018.828 4H15a3 3 0 013 3v6a3 3 0 01-3 3H8.828a3 3 0 01-2.12-.879l-4.415-4.414a1 1 0 010-1.414l4.414-4.414zm4 2.414a1 1 0 00-1.414 1.414L10.586 10l-1.293 1.293a1 1 0 101.414 1.414L12 11.414l1.293 1.293a1 1 0 001.414-1.414L13.414 10l1.293-1.293a1 1 0 00-1.414-1.414L12 8.586l-1.293-1.293z" clip-rule="evenodd"></path></svg>
+							</div>
+						</button>
+						<button id="re-generate-prd" class="w-14 h-14 flex-none rounded-lg flex items-center justify-center bg-gray-50 border border-gray-300 text-gray-600 hover:bg-gray-100">
+							<div tooltip="Re-generate PRD" position="top" class="w-full" data-v-47bc123b="">
+								<svg class="w-full mt-[30%] h-5 text-gray-600 mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4 2a1 1 0 011 1v2.101a7.002 7.002 0 0111.601 2.566 1 1 0 11-1.885.666A5.002 5.002 0 005.999 7H9a1 1 0 010 2H4a1 1 0 01-1-1V3a1 1 0 011-1zm.008 9.057a1 1 0 011.276.61A5.002 5.002 0 0014.001 13H11a1 1 0 110-2h5a1 1 0 011 1v5a1 1 0 11-2 0v-2.101a7.002 7.002 0 01-11.601-2.566 1 1 0 01.61-1.276z" clip-rule="evenodd"></path></svg>
+							</div>
+						</button> -->
+						<button id="generate-prd" type="submit" class="sm:p-4 p-3 pt-4 grow rounded-lg flex items-center justify-center bg-pink-600 hover:bg-pink-800 shadow-lg text-xs sm:text-base">
+							<div class="w-full">Generate My PRD</div>
+						</button>
+					</div>
+				</div>
+			</form>
+		</div>
+		<div class="flex flex-col w-1/2 items-center p-10 overflow-y-scroll max-h-[calc(100vh-48px)]" style="background: linear-gradient(180deg, rgba(255,185,215,1) 0%, rgba(255,255,255,1) 30%, rgba(255,103,167,1) 100%);">
+			{% if prd != "" %}
+			<div class="p-8 shadow-lg rounded w-full bg-white text-gray-800 markdown-body" id="prd-content">
+			{{prd}}
+			</div>
+			{% endif %}
+		</div>
+	</div>
+{% endblock %}
