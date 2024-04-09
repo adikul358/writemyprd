@@ -6,12 +6,31 @@
     <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.5.1/github-markdown.min.css"/>
+    <style>
+        .animate-bg {
+            animation: gradient 3s ease-out infinite;
+        }
+        @keyframes gradient {
+            0% {
+                background-position: 50% 0%;
+            }
+            50% {
+                background-position: 50% 100%;
+            }
+            100% {
+                background-position: 50% 0%;
+            }
+        }
+    </style>
 </head>
 <body class="bg-white">
     {% block layout %}
     {% endblock %}
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <script>
+        document.getElementById('generate-prd').addEventListener("click", () => {
+            document.getElementById('output-col').className += " animate-bg"
+        })
         raw_cont = document.getElementById('prd-content').innerHTML;
         document.getElementById('prd-content').innerHTML = marked.parse(raw_cont.trim());
     </script>
