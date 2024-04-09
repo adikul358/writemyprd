@@ -13,7 +13,7 @@ print(f"\n\n{boldtext("2. Define Your Requirement")}")
 b1 = input("\nFeature List\n> ")
 b2 = input("\nUser Feedback\n> ")
 
-query = f"Write a PRD for a product named {a1} that {a3} with features including {a2}, {b1}{", for which the users 	have given feedback of" + b2 if b2 != "" else ""}"
+query = f"Write a PRD for a product named {a1} that {a3} with features including {a2}, {b1}{', for which the users 	have given feedback of' + b2 if b2 != '' else ''}"
 print(f"\n\n{boldtext("Query")}\n>{query}")
 
 prd = get_prd(query)
