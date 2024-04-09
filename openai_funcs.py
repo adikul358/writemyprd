@@ -1,11 +1,9 @@
 from openai import OpenAI
 from time import sleep
-from dotenv import dotenv_values
-import os
+from os import getenv
 
-config = dotenv_values(".env")
-client = OpenAI(api_key=(config["OPENAI_API_KEY"] | os.environ["OPENAI_API_KEY"]))
-my_assistant = client.beta.assistants.retrieve((config["OPENAI_ASSISTANT_ID"] | os.environ["OPENAI_ASSISTANT_ID"]))
+client = OpenAI(api_key=getenv("OPENAI_API_KEY"))
+my_assistant = client.beta.assistants.retrieve(getenv("OPENAI_ASSISTANT_ID"))
 
 
 def create_thread():
