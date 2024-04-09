@@ -2,6 +2,7 @@ from flask import Flask, render_template, request, redirect, url_for
 from flask_wtf import Form
 from wtforms import StringField, TextAreaField
 from openai_funcs import get_prd
+import os
 
 app = Flask(__name__)
 
@@ -31,4 +32,4 @@ def index():
     return render_template('index.html', form=form, message=error, prd=prd)
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=True, host="0.0.0.0", port=os.environ.get("PORT", 8080))
