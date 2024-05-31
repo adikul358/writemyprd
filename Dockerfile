@@ -1,11 +1,9 @@
-FROM python:3.12
+FROM python:3.11
 
 WORKDIR /app
 
-COPY requirements.txt /app
-
-RUN pip3 install --no-cache-dir --upgrade -r requirements.txt
-
 COPY . .
 
-CMD ["python3", "app.py"]
+RUN pip install --no-cache-dir --upgrade -r requirements.txt
+
+CMD python app.py
