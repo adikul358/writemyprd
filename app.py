@@ -14,20 +14,20 @@ class PRDForm(Form):
     feature_list = TextAreaField('Feature List')
     user_feedback = TextAreaField('User Feedback')
 
-@app.route('/', methods=['GET', 'POST'])
+@app.route('/', methods=["GET", "POST"])
 def index():
     error = ""
     prd = ""
     form = PRDForm(request.form)
 
-    if request.method == 'POST':
+    if request.method == "POST":
         a1 = form.product_name.data
         a2 = form.feature_name.data
         a3 = form.overview.data
         b1 = form.feature_list.data
         b2 = form.user_feedback.data
 
-        query = f"Write a PRD for a product named {a1} that {a3} with features including {a2}, {b1}{", for which the users 	have given feedback of" + b2 if b2 != "" else ""}"
+        query = f"Write a PRD for a product named {a1} that {a3} with features including {a2}, {b1}{', for which the users 	have given feedback of' + b2 if b2 != '' else ''}"
         prd = get_prd(query)
 
     return render_template('index.html', form=form, message=error, prd=prd)

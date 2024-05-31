@@ -8,7 +8,6 @@ my_assistant = client.beta.assistants.retrieve(getenv("OPENAI_ASSISTANT_ID"))
 
 def create_thread():
     thread = client.beta.threads.create()
-
     return thread
 
 

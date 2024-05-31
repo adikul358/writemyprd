@@ -12,7 +12,15 @@
 			<h1 class="text-3xl font-bold text-gray-800 mb-6">Make Writing PRDs a Breeze with ChatGPT</h1>
 			<p class="text-gray-500 mb-6">Describe the problem your product/service solves. Help the bot with top level information, and let it give you something you can build on.</p>
 			<p>{{message}}</p>
+
+			# In index.html, replace this
 			<form method="POST">
+
+			# With this
+			<form action="{{ url_for('index') }}" method="POST">
+
+
+
 				{{ form.csrf_token }}
 
 				<h3 class="text-lg font-bold text-gray-800 mb-5"><span class="text-pink-600">1.</span> About Your Product</h3>
