@@ -54,14 +54,16 @@ def get_run_status(thread_id, run_id):
 
 
 def get_prd(query):
-    # my_thread = create_thread()
+    global asst_writemyprd
+    get_assistant()
+    
+    my_thread = create_thread()
 
-    # send_message(my_thread.id, query)
-    # run = run_assistant(my_thread.id, asst_writemyprd.id)
-    # while run.status != "completed":
-    #     run.status = get_run_status(my_thread.id, run.id)
-    #     sleep(1)
-    # sleep(0.5)
-    # response = get_newest_message(my_thread.id)
-    # return response.content[0].text.value
-    return ""
+    send_message(my_thread.id, query)
+    run = run_assistant(my_thread.id, asst_writemyprd.id)
+    while run.status != "completed":
+        run.status = get_run_status(my_thread.id, run.id)
+        sleep(1)
+    sleep(0.5)
+    response = get_newest_message(my_thread.id)
+    return response.content[0].text.value
