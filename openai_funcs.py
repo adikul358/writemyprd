@@ -1,9 +1,25 @@
-from openai import OpenAI
+import os
+from openai import OpenAI, NotFoundError
 from time import sleep
-from os import getenv
 
-client = OpenAI(api_key=getenv("OPENAI_API_KEY"))
-my_assistant = client.beta.assistants.retrieve(getenv("OPENAI_ASSISTANT_ID"))
+client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+asst_writemyprd = None
+
+def get_assistant():
+    global asst_writemyprd
+    assistants = client.beta.assistants.list()
+    asst_prd_find = [x for x in assistants.data if x.name == "WriteMyPRD"]
+    if len(asst_prd_find) > 0:
+        asst_writemyprd = asst_prd_find[0]
+        print("Retrieved asst_writemyprd", asst_writemyprd.id)
+    else:
+        asst_writemyprd = client.beta.assistants.create(
+            name="WriteMyPRD",
+            instructions="You are a helpful assistant who writes professional product requirement documents (PRDs) and formats them cleanly in markdown.",
+            model="gpt-4o",
+        )
+        print("Created asst_writemyprd", asst_writemyprd.id)
+        print("Created asst_writemyprd")
 
 
 def create_thread():
@@ -38,13 +54,14 @@ def get_run_status(thread_id, run_id):
 
 
 def get_prd(query):
-    my_thread = create_thread()
+    # my_thread = create_thread()
 
-    send_message(my_thread.id, query)
-    run = run_assistant(my_thread.id, my_assistant.id)
-    while run.status != "completed":
-        run.status = get_run_status(my_thread.id, run.id)
-        sleep(1)
-    sleep(0.5)
-    response = get_newest_message(my_thread.id)
-    return response.content[0].text.value
+    # send_message(my_thread.id, query)
+    # run = run_assistant(my_thread.id, asst_writemyprd.id)
+    # while run.status != "completed":
+    #     run.status = get_run_status(my_thread.id, run.id)
+    #     sleep(1)
+    # sleep(0.5)
+    # response = get_newest_message(my_thread.id)
+    # return response.content[0].text.value
+    return ""

@@ -1,9 +1,11 @@
+import os
+from time import sleep
 from flask import Flask, render_template, request, redirect, url_for
 from flask_wtf import Form
 from wtforms import StringField, TextAreaField
-from openai_funcs import get_prd
-import os
-from time import sleep
+from openai_funcs import get_prd, get_assistant
+from dotenv import load_dotenv
+load_dotenv()
 
 app = Flask(__name__)
 
@@ -33,4 +35,6 @@ def index():
     return render_template('index.html', form=form, message=error, prd=prd)
 
 if __name__ == "__main__":
+    get_assistant()
+
     app.run(debug=True, host="0.0.0.0", port=int(os.environ.get('PORT', 8080)))
