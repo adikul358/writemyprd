@@ -187,14 +187,14 @@ Don't forget to give the project a star! Thanks again!
 <!-- LICENSE -->
 ## License
 
-Distributed under the MIT License. See `LICENSE.txt` for more information.
+Distributed under the MIT License. See `LICENSE` for more information.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- CONTACT -->
 ## Contact
 
-Aditya Kulshrestha - [![@adikul358.bsky.social](https://img.shields.io/static/v1?label=Bluesky&message=adikul358&color=0285FF&logo=bluesky&logoColor=ffffff)](https://adikul358.bsky.social) - [![hello@adikul.dev](https://img.shields.io/static/v1?label=Gmail&message=hello@adikul.dev&logo=gmail&logoColor=ffffff&color=blue)](mailto:hello@adikul.dev)
+Aditya Kulshrestha - [![@adikul358.bsky.social](https://img.shields.io/static/v1?label=Bluesky&message=adikul358.bsky.social&color=0285FF&logo=bluesky&logoColor=ffffff)](https://adikul358.bsky.social) - [![hello@adikul.dev](https://img.shields.io/static/v1?label=Gmail&message=hello@adikul.dev&logo=gmail&logoColor=ffffff&color=blue)](mailto:hello@adikul.dev)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
