@@ -6,7 +6,6 @@
 [![forks - writemyprd](https://img.shields.io/github/forks/adikul358/writemyprd?style=flat&logo=github)](https://github.com/adikul358/writemyprd)
 [![status - writemyprd](https://img.shields.io/uptimerobot/status/m798809959-1b3aa39349c32c07420ff24e)](https://stats.uptimerobot.com/C89E11R5e2)
 
-<img width="1667" alt="image" src="https://github.com/user-attachments/assets/e02e29cf-bf9b-41d7-bb60-cc37e9b74e21" />
 
 
 <!--
@@ -77,7 +76,8 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
+<img width="1667" alt="image" src="https://github.com/user-attachments/assets/e02e29cf-bf9b-41d7-bb60-cc37e9b74e21" />
+
 
 There are many great README templates available on GitHub; however, I didn't find one that really suited my needs so I created this enhanced one. I want to create a README template so amazing that it'll be the last one you ever need -- I think this is it.
 
